@@ -2,7 +2,7 @@ import { Application, Router } from 'https://deno.land/x/oak/mod.ts'
 
 const router = new Router()
 
-router.get(ctx => {
+router.get('/', ctx => {
   ctx.response.body = 'Hello world!'
 })
 
