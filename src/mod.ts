@@ -18,12 +18,13 @@ router.get('/users/:id', ctx => {
   }
 })
 
-router.use('*', ctx => {
+router.all('/:slug', ctx => {
   ctx.response.status = 404
   ctx.response.type = 'json'
   ctx.response.body = {
     appName: 'deno-deploy-oak-example',
-    msg: 'Página não encontrada.'
+    msg: 'Página não encontrada.',
+    recurso: ctx.params.slug
   }
 })
 
@@ -32,4 +33,4 @@ const app = new Application()
 app.use(router.routes())
 app.use(router.allowedMethods())
 
-await app.listen({ port: Deno.env.get('PORT') })
+await app.listen({ port: 3000/*Deno.env.get('PORT')*/ })
