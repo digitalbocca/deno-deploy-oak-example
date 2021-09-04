@@ -18,7 +18,7 @@ router.get('/users/:id', ctx => {
   }
 })
 
-router.all('*', ctx => {
+router.use('*', ctx => {
   ctx.response.status = 404
   ctx.response.type = 'json'
   ctx.response.body = {
