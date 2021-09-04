@@ -6,6 +6,10 @@ router.get('/', ctx => {
   ctx.response.body = 'Hello world!'
 })
 
+router.get('/users/:id', ctx => {
+  ctx.response.body = `User ID: ${ctx.params.id}`
+})
+
 const app = new Application()
 
 app.use(router.routes())
